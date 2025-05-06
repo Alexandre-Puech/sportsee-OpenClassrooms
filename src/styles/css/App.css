@@ -1,12 +1,14 @@
-.appLayout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-.appLayout .layout-body {
-  display: flex;
-  height: 100%;
-  align-items: center;
+@media (min-width: 1024px) and (min-height: 780px) {
+  .appLayout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .appLayout .layout-body {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

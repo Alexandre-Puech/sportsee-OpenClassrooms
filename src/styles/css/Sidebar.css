@@ -1,34 +1,36 @@
-.sidebar {
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 95vh;
-  width: 117px;
-}
-.sidebar .sidebar-buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  gap: 20px;
-}
-.sidebar .sidebar-buttons .sidebar-button {
-  display: flex;
-  width: 64px;
-  height: 64px;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-}
-.sidebar .copyright {
-  font-size: 12px;
-  font-weight: 500;
-  color: white;
-  transform: rotate(-90deg);
-  text-wrap: nowrap;
-  margin-bottom: 120px;
+@media (min-width: 1024px) and (min-height: 780px) {
+  .sidebar {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 117px;
+  }
+  .sidebar .sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    gap: 20px;
+  }
+  .sidebar .sidebar-buttons .sidebar-button {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+  .sidebar .copyright {
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    transform: rotate(-90deg);
+    text-wrap: nowrap;
+    margin-bottom: 120px;
+  }
 }
 
 /*# sourceMappingURL=Sidebar.css.map */
