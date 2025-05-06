@@ -1,12 +1,13 @@
 import "./styles/css/App.css";
+import Layout from "./components/Layout";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
-    <>
-      <Header />
-      <div>Hello World</div>
-    </>
+    <Layout header={<Header />} sidebar={<Sidebar />}>
+      Hello World
+    </Layout>
   );
 }
 

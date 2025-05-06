@@ -1,0 +1,32 @@
+.sidebar {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  width: 117px;
+  .sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    gap: 20px;
+    .sidebar-button {
+      display: flex;
+      width: 64px;
+      height: 64px;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+    }
+  }
+  .copyright {
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    transform: rotate(-90deg);
+    text-wrap: nowrap;
+    margin-bottom: 120px;
+  }
+}

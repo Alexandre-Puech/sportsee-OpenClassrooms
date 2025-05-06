@@ -11,7 +11,6 @@
     "sass": "sass --watch src/styles/sass:src/styles/css"
   },
   "dependencies": {
-    "bootstrap": "^5.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^2.15.3",
