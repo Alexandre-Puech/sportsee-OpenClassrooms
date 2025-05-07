@@ -1,37 +1,37 @@
+@import "variables";
+@import "mixins";
+
 @media (min-width: 1024px) and (min-height: 780px) {
   .header {
-    display: flex;
+    @include flex-center;
     flex-direction: row;
     background-color: black;
     color: white;
-    align-items: center;
     width: 100vw;
     height: 91px;
     gap: 149px;
     .header-logo {
-      display: flex;
+      @include flex-center;
       flex-direction: row;
       gap: 10px;
-      align-items: center;
       margin: 19px 0px 12px 28px;
       .logo-image {
         width: 57px;
         height: 57px;
-        background-color: #ff0101;
+        background-color: $primary-color;
         border-radius: 50px;
       }
     }
     nav {
-      display: flex;
+      @include flex-space;
       flex-direction: row;
-      justify-content: space-between;
       margin: 36px 91px 31px 0px;
       width: 100%;
       a {
         text-decoration: none;
         color: white;
         font-weight: 500;
-        font-size: 24px;
+        font-size: rem(24);
       }
     }
   }

@@ -1,0 +1,6 @@
+$primary-color: #ff0101;
+$secondary-color: #282d30;
+$base-font-size: 18px;
+@function rem($px) {
+  @return ($px/($base-font-size / 1px)) * 1rem;
+}

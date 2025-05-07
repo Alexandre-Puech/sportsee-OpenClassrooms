@@ -1,4 +1,4 @@
-const USER_MAIN_DATA = [
+export const USER_MAIN_DATA = [
   {
     id: 12,
     userInfos: {
