@@ -9,7 +9,11 @@
     .layout-body {
       display: flex;
       height: 100%;
-      align-items: center;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      margin: 68px 90px 86px 107px;
     }
   }
 }
