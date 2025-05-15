@@ -1,0 +1,49 @@
+import {
+  RadialBarChart,
+  RadialBar,
+  ResponsiveContainer,
+  PolarAngleAxis,
+} from "recharts";
+import { USER_MAIN_DATA } from "../data/data.js";
+import "../styles/css/Radialbarchart.css";
+
+function ScoreRadial() {
+  const userId = 18;
+  const data = USER_MAIN_DATA.find((user) => user.id === userId);
+  const score = data.score * 100;
+
+  const scoreData = [{ name: "Score", value: score, fill: "#FF0000" }];
+
+  return (
+    <div className="radialbarchart-container">
+      <p className="title">Score</p>
+      <div className="radialbarchart-infos">
+        <p className="percentage">{score}%</p>
+        <p className="percentage-complement">
+          de votre
+          <br />
+          objectif
+        </p>
+      </div>
+      <ResponsiveContainer width="100%" height="100%">
+        <RadialBarChart
+          innerRadius="70%"
+          outerRadius="80%"
+          barSize={10}
+          data={scoreData}
+          startAngle={90}
+          endAngle={450}
+        >
+          <PolarAngleAxis
+            type="number"
+            domain={[0, 100]}
+            angleAxisId={0}
+            tick={false}
+          />
+          <RadialBar dataKey="value" cornerRadius={50} background />
+        </RadialBarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+export default ScoreRadial;
