@@ -1,0 +1,19 @@
+.linechart-container {
+  display: flex;
+  background-color: #ff0101;
+  border-radius: 5px;
+  position: relative;
+  align-items: end;
+}
+.linechart-container .title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.linechart-container .title p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8333333333rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=Linechart.css.map */

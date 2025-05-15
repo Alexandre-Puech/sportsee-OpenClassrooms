@@ -1,0 +1,29 @@
+.barchart-container {
+  position: relative;
+  background-color: #fbfbfb;
+  height: 100%;
+}
+.barchart-container .recharts-legend-item-text {
+  font-size: 14px;
+  color: #74798c;
+}
+.barchart-container .barchart-title {
+  position: absolute;
+  top: 15px;
+  left: 32px;
+  font-size: 0.8333333333rem;
+  font-weight: 500;
+}
+.barchart-container .recharts-tooltip-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 39px;
+  height: 63px;
+  background-color: #ff0101;
+  padding: 10px;
+  color: white;
+  font-size: 0.6666666667rem;
+  text-align: center;
+}
+
+/*# sourceMappingURL=Barchart.css.map */

@@ -1,0 +1,23 @@
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 320px 263px;
+  gap: 30px;
+  width: 75%;
+  .barchart-container {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+  .linechart-container {
+    grid-column: 1/2;
+    grid-row: 2;
+  }
+  .radarchart-container {
+    grid-column: 2/3;
+    grid-row: 2;
+  }
+  .radialbarchart-container {
+    grid-column: 3/4;
+    grid-row: 2;
+  }
+}

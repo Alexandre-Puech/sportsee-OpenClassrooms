@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+.barchart-container {
+  position: relative;
+  background-color: #fbfbfb;
+  height: 100%;
+  .recharts-legend-item-text {
+    font-size: 14px;
+    color: #74798c;
+  }
+  .barchart-title {
+    position: absolute;
+    top: 15px;
+    left: 32px;
+    font-size: rem(15);
+    font-weight: 500;
+  }
+  .recharts-tooltip-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 39px;
+    height: 63px;
+    background-color: $primary-color;
+    padding: 10px;
+    color: white;
+    font-size: rem(12);
+    text-align: center;
+  }
+}

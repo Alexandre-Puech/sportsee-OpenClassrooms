@@ -4,7 +4,11 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Title from "./components/Title";
 import { USER_MAIN_DATA } from "./data/data.js";
-import Barchart from "./components/Barchart.jsx";
+import Charts from "./components/Charts";
+import DailyActivity from "./components/DailyActivity.jsx";
+import AverageSessions from "./components/AverageSessions.jsx";
+import PerformanceRadar from "./components/PerformanceRadar.jsx";
+import ScoreRadial from "./components/ScoreRadial.jsx";
 
 function App() {
   const userId = 18;
@@ -19,7 +23,14 @@ function App() {
         subtitle="Félicitation ! Vous avez explosé vos objectifs hier 👏"
         // A remplacer par un message en fonction du résultat réel de la veille
       />
-      <Barchart />
+      <div className="content-body">
+        <Charts>
+          <DailyActivity />
+          <AverageSessions />
+          <PerformanceRadar />
+          <ScoreRadial />
+        </Charts>
+      </div>
     </Layout>
   );
 }
