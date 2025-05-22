@@ -1,40 +1,48 @@
 import "../styles/css/Datacards.css";
-import { USER_MAIN_DATA } from "../data/data.js";
+import { useEffect, useState } from "react";
+import { getUserData } from "../api/api";
 import Card from "./Card.jsx";
 import calories from "../assets/cards-logos/calories-logo.svg";
 import proteins from "../assets/cards-logos/proteins-logo.svg";
 import carbs from "../assets/cards-logos/carbs-logo.svg";
 import lipids from "../assets/cards-logos/lipids-logo.svg";
 
-const userId = 18;
-const data = USER_MAIN_DATA.find((user) => user.id === userId);
-const keyData = data.keyData;
-
 function DataCards() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await getUserData(18);
+      setUser(userData);
+    }
+    fetchUser();
+  }, []);
+  if (!user) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="cards-container">
       <Card
         className="calories"
         image={calories}
-        value={`${keyData.calorieCount}kCal`}
+        value={`${user.calorieCount}kCal`}
         type="Calories"
       />
       <Card
         className="proteins"
         image={proteins}
-        value={`${keyData.proteinCount}g`}
+        value={`${user.proteinCount}g`}
         type="Protéines"
       />
       <Card
         className="carbs"
         image={carbs}
-        value={`${keyData.carbohydrateCount}g`}
+        value={`${user.carbohydrateCount}g`}
         type="Glucides"
       />
       <Card
         className="lipids"
         image={lipids}
-        value={`${keyData.lipidCount}g`}
+        value={`${user.lipidCount}g`}
         type="Lipides"
       />
     </div>

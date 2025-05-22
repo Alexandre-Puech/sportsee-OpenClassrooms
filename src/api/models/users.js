@@ -5,5 +5,9 @@ export class User {
     this.lastName = data.userInfos.lastName;
     this.age = data.userInfos.age;
     this.score = data.todayScore || data.score;
+    this.calorieCount = data.keyData.calorieCount;
+    this.proteinCount = data.keyData.proteinCount;
+    this.carbohydrateCount = data.keyData.carbohydrateCount;
+    this.lipidCount = data.keyData.lipidCount;
   }
 }
