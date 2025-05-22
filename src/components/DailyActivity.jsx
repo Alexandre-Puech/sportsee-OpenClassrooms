@@ -7,15 +7,16 @@ import {
   Bar,
   ResponsiveContainer,
 } from "recharts";
-import { USER_ACTIVITY } from "../data/data";
+import { useEffect, useState } from "react";
+import { getUserActivity } from "../api/api";
 import "../styles/css/Barchart.css";
 
-const userId = 18;
-const userData = USER_ACTIVITY.find((user) => user.userId === userId);
-const sessions = userData.sessions.map((session, index) => ({
-  ...session,
-  dayNumber: index + 1,
-}));
+// const userId = 18;
+// const userData = USER_ACTIVITY.find((user) => user.userId === userId);
+// const sessions = userData.sessions.map((session, index) => ({
+//   ...session,
+//   dayNumber: index + 1,
+// }));
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length === 2) {
@@ -33,6 +34,25 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 function DailyActivity() {
+  const [sessions, setSessions] = useState(null);
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await getUserActivity(18);
+      if (userData && Array.isArray(userData.sessions)) {
+        const sessionsWithDay = userData.sessions.map((session, index) => ({
+          ...session,
+          dayNumber: index + 1,
+        }));
+        setSessions(sessionsWithDay);
+      } else {
+        setSessions([]);
+      }
+    }
+    fetchUser();
+  }, []);
+  if (!sessions) {
+    return <div>Loading...</div>;
+  }
   const kilograms = sessions.map((s) => s.kilogram);
   const minKg = Math.min(...kilograms);
   const maxKg = Math.max(...kilograms);
