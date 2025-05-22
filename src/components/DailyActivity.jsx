@@ -11,13 +11,6 @@ import { useEffect, useState } from "react";
 import { getUserActivity } from "../api/api";
 import "../styles/css/Barchart.css";
 
-// const userId = 18;
-// const userData = USER_ACTIVITY.find((user) => user.userId === userId);
-// const sessions = userData.sessions.map((session, index) => ({
-//   ...session,
-//   dayNumber: index + 1,
-// }));
-
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length === 2) {
     const kilo = payload.find((p) => p.dataKey === "kilogram")?.value;

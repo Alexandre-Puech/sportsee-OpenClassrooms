@@ -9,17 +9,9 @@ import {
   Rectangle,
 } from "recharts";
 import "../styles/css/Linechart.css";
+import { useEffect, useState } from "react";
+import { getUserAverageSessions } from "../api/api";
 
-const userId = 18;
-const userData = USER_AVERAGE_SESSIONS.find((user) => user.userId === userId);
-const baseSessions = userData.sessions;
-const first = baseSessions[0];
-const last = baseSessions[baseSessions.length - 1];
-const sessions = [
-  { day: "", sessionLength: first.sessionLength },
-  ...baseSessions,
-  { day: "", sessionLength: last.sessionLength },
-];
 const dayLabels = ["", "L", "M", "M", "J", "V", "S", "D"];
 const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload || !payload.length || !payload[0].payload.day) {
@@ -56,6 +48,25 @@ const CustomCursor = ({ points }) => {
 };
 
 function AverageSessions() {
+  const [sessions, setSessions] = useState(null);
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await getUserAverageSessions(18);
+      if (userData && Array.isArray(userData.sessions)) {
+        const sessionsWithDay = userData.sessions.map((session, index) => ({
+          ...session,
+          dayNumber: index + 1,
+        }));
+        setSessions(sessionsWithDay);
+      } else {
+        setSessions([]);
+      }
+    }
+    fetchUser();
+  }, []);
+  if (!sessions) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="linechart-container">
       <div className="title">
@@ -68,7 +79,7 @@ function AverageSessions() {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={sessions}
-          margin={{ top: 0, bottom: 20, left: 0, right: 0 }}
+          margin={{ top: 0, bottom: 20, left: 5, right: 5 }}
         >
           <XAxis
             dataKey="day"
