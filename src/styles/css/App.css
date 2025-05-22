@@ -6,6 +6,7 @@
   }
   .appLayout .layout-body {
     display: flex;
+    height: 100vh;
   }
   .appLayout .content {
     display: flex;
