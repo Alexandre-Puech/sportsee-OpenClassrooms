@@ -3,6 +3,7 @@ import { get } from "../utils/fetch";
 import { User } from "./models/users";
 import { DailyActivity } from "./models/dailyActivity";
 import { AverageSessions } from "./models/averageSessions";
+import { UserPerformance } from "./models/userPerformance";
 
 export async function getUserData(userId) {
   const data = await get(`http://localhost:3000/user/${userId}`);
@@ -21,5 +22,11 @@ export async function getUserAverageSessions(userId) {
     `http://localhost:3000/user/${userId}/average-sessions`
   );
   const model = new AverageSessions(data);
+  return model;
+}
+
+export async function getUserPerformance(userId) {
+  const data = await get(`http://localhost:3000/user/${userId}/performance`);
+  const model = new UserPerformance(data);
   return model;
 }

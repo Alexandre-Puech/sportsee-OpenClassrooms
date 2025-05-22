@@ -6,16 +6,10 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
-import { USER_PERFORMANCE } from "../data/data";
 import "../styles/css/Radarchart.css";
+import { useEffect, useState } from "react";
+import { getUserPerformance } from "../api/api";
 
-const userId = 18;
-const data = USER_PERFORMANCE.find((user) => user.userId === userId);
-
-const performanceData = data.data.map((item) => ({
-  value: item.value,
-  kind: item.kind,
-}));
 const trueLabels = [
   "",
   "Cardio",
@@ -27,6 +21,24 @@ const trueLabels = [
 ];
 
 function PerformanceRadar() {
+  const [performanceData, setPerformanceData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getUserPerformance(18);
+      if (data && Array.isArray(data.data)) {
+        setPerformanceData(data.data);
+      } else {
+        setPerformanceData([]);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (!performanceData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="radarchart-container">
       <ResponsiveContainer width="100%" height="100%">
@@ -35,7 +47,10 @@ function PerformanceRadar() {
           <PolarAngleAxis
             dataKey="kind"
             tick={{ fill: "#FFFFFF", fontSize: 12 }}
-            tickFormatter={(kind) => trueLabels[kind] || ""}
+            tickFormatter={(kind) => {
+              if (typeof kind === "number") return trueLabels[kind] || "";
+              return kind;
+            }}
           />
           <PolarRadiusAxis
             tick={false}
@@ -54,4 +69,5 @@ function PerformanceRadar() {
     </div>
   );
 }
+
 export default PerformanceRadar;
