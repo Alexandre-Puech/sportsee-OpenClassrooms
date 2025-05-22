@@ -6,7 +6,6 @@
   }
   .appLayout .layout-body {
     display: flex;
-    height: 100%;
   }
   .appLayout .content {
     display: flex;
@@ -14,6 +13,10 @@
     margin: 68px 90px 86px 107px;
     width: 100%;
     gap: 77px;
+  }
+  .appLayout .content-body {
+    display: flex;
+    flex-direction: row;
   }
 }
 

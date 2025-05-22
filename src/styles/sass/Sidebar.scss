@@ -6,7 +6,7 @@
     background-color: black;
     @include flex-center;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 117px;
     .sidebar-buttons {
       @include flex-center;
@@ -26,7 +26,7 @@
       color: white;
       transform: rotate(-90deg);
       text-wrap: nowrap;
-      margin-bottom: 120px;
+      margin-bottom: 150px;
     }
   }
 }

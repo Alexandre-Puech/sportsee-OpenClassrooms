@@ -17,32 +17,34 @@ function ScoreRadial() {
   return (
     <div className="radialbarchart-container">
       <p className="title">Score</p>
-      <div className="radialbarchart-infos">
-        <p className="percentage">{score}%</p>
-        <p className="percentage-complement">
-          de votre
-          <br />
-          objectif
-        </p>
+      <div className="radialbarchart-center">
+        <div className="radialbarchart-infos">
+          <p className="percentage">{score}%</p>
+          <p className="percentage-complement">
+            de votre
+            <br />
+            objectif
+          </p>
+        </div>
+        <ResponsiveContainer width="100%" height="100%">
+          <RadialBarChart
+            innerRadius="70%"
+            outerRadius="80%"
+            barSize={10}
+            data={scoreData}
+            startAngle={90}
+            endAngle={450}
+          >
+            <PolarAngleAxis
+              type="number"
+              domain={[0, 100]}
+              angleAxisId={0}
+              tick={false}
+            />
+            <RadialBar dataKey="value" cornerRadius={50} background />
+          </RadialBarChart>
+        </ResponsiveContainer>
       </div>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart
-          innerRadius="70%"
-          outerRadius="80%"
-          barSize={10}
-          data={scoreData}
-          startAngle={90}
-          endAngle={450}
-        >
-          <PolarAngleAxis
-            type="number"
-            domain={[0, 100]}
-            angleAxisId={0}
-            tick={false}
-          />
-          <RadialBar dataKey="value" cornerRadius={50} background />
-        </RadialBarChart>
-      </ResponsiveContainer>
     </div>
   );
 }

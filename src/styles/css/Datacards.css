@@ -1,0 +1,20 @@
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 31px;
+  gap: 39px;
+}
+.cards-container .calories .card-image {
+  background-color: rgba(255, 0, 0, 0.06);
+}
+.cards-container .proteins .card-image {
+  background-color: rgba(74, 184, 255, 0.06);
+}
+.cards-container .carbs .card-image {
+  background-color: rgba(249, 206, 35, 0.06);
+}
+.cards-container .lipids .card-image {
+  background-color: rgba(253, 81, 129, 0.06);
+}
+
+/*# sourceMappingURL=Datacards.css.map */

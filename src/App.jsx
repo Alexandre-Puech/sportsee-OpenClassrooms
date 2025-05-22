@@ -2,35 +2,12 @@ import "./styles/css/App.css";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Title from "./components/Title";
-import { USER_MAIN_DATA } from "./data/data.js";
-import Charts from "./components/Charts";
-import DailyActivity from "./components/DailyActivity.jsx";
-import AverageSessions from "./components/AverageSessions.jsx";
-import PerformanceRadar from "./components/PerformanceRadar.jsx";
-import ScoreRadial from "./components/ScoreRadial.jsx";
+import Dashboard from "./pages/dashboard";
 
 function App() {
-  const userId = 18;
-  const userData = USER_MAIN_DATA.find((user) => user.id === userId);
-  if (!userData) {
-    return <div>Error: User not found</div>;
-  }
   return (
     <Layout header={<Header />} sidebar={<Sidebar />}>
-      <Title
-        name={userData.userInfos.firstName}
-        subtitle="Félicitation ! Vous avez explosé vos objectifs hier 👏"
-        // A remplacer par un message en fonction du résultat réel de la veille
-      />
-      <div className="content-body">
-        <Charts>
-          <DailyActivity />
-          <AverageSessions />
-          <PerformanceRadar />
-          <ScoreRadial />
-        </Charts>
-      </div>
+      <Dashboard />
     </Layout>
   );
 }
