@@ -4,13 +4,24 @@ import {
   ResponsiveContainer,
   PolarAngleAxis,
 } from "recharts";
-import { USER_MAIN_DATA } from "../data/data.js";
+import { useEffect, useState } from "react";
+import { getUserData } from "../api/api";
 import "../styles/css/Radialbarchart.css";
 
 function ScoreRadial() {
-  const userId = 18;
-  const data = USER_MAIN_DATA.find((user) => user.id === userId);
-  const score = data.score * 100;
+  const [score, setScore] = useState(null);
+  useEffect(() => {
+    async function fetchUser() {
+      const userData = await getUserData(18);
+      const userScore =
+        userData.score !== undefined ? userData.score : userData.todayScore;
+      setScore(userScore * 100);
+    }
+    fetchUser();
+  }, []);
+  if (score === null) {
+    return <div>Loading...</div>;
+  }
 
   const scoreData = [{ name: "Score", value: score, fill: "#FF0000" }];
 

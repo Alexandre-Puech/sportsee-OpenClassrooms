@@ -4,5 +4,6 @@ export class User {
     this.firstName = data.userInfos.firstName;
     this.lastName = data.userInfos.lastName;
     this.age = data.userInfos.age;
+    this.score = data.todayScore || data.score;
   }
 }
