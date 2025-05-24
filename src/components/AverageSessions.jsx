@@ -1,4 +1,3 @@
-import { USER_AVERAGE_SESSIONS } from "../data/data";
 import {
   LineChart,
   Line,
@@ -47,11 +46,11 @@ const CustomCursor = ({ points }) => {
   );
 };
 
-function AverageSessions() {
+function AverageSessions({ userId, mockedData }) {
   const [sessions, setSessions] = useState(null);
   useEffect(() => {
     async function fetchUser() {
-      const userData = await getUserAverageSessions(18);
+      const userData = await getUserAverageSessions(userId, mockedData);
       if (userData && Array.isArray(userData.sessions)) {
         const sessionsWithDay = userData.sessions.map((session, index) => ({
           ...session,
@@ -63,7 +62,7 @@ function AverageSessions() {
       }
     }
     fetchUser();
-  }, []);
+  });
   if (!sessions) {
     return <div>Loading...</div>;
   }

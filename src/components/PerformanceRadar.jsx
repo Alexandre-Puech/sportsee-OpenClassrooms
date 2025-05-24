@@ -20,12 +20,12 @@ const trueLabels = [
   "Intensité",
 ];
 
-function PerformanceRadar() {
+function PerformanceRadar({ userId, mockedData }) {
   const [performanceData, setPerformanceData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getUserPerformance(18);
+      const data = await getUserPerformance(userId, mockedData);
       if (data && Array.isArray(data.data)) {
         setPerformanceData(data.data);
       } else {
@@ -33,7 +33,7 @@ function PerformanceRadar() {
       }
     }
     fetchData();
-  }, []);
+  });
 
   if (!performanceData) {
     return <div>Loading...</div>;

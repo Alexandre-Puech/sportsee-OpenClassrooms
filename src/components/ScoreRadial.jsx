@@ -8,17 +8,17 @@ import { useEffect, useState } from "react";
 import { getUserData } from "../api/api";
 import "../styles/css/Radialbarchart.css";
 
-function ScoreRadial() {
+function ScoreRadial({ userId, mockedData }) {
   const [score, setScore] = useState(null);
   useEffect(() => {
     async function fetchUser() {
-      const userData = await getUserData(18);
+      const userData = await getUserData(userId, mockedData);
       const userScore =
         userData.score !== undefined ? userData.score : userData.todayScore;
       setScore(userScore * 100);
     }
     fetchUser();
-  }, []);
+  });
   if (score === null) {
     return <div>Loading...</div>;
   }

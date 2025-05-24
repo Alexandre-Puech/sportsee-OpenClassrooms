@@ -26,11 +26,11 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-function DailyActivity() {
+function DailyActivity({ userId, mockedData }) {
   const [sessions, setSessions] = useState(null);
   useEffect(() => {
     async function fetchUser() {
-      const userData = await getUserActivity(18);
+      const userData = await getUserActivity(userId, mockedData);
       if (userData && Array.isArray(userData.sessions)) {
         const sessionsWithDay = userData.sessions.map((session, index) => ({
           ...session,
@@ -42,7 +42,7 @@ function DailyActivity() {
       }
     }
     fetchUser();
-  }, []);
+  });
   if (!sessions) {
     return <div>Loading...</div>;
   }

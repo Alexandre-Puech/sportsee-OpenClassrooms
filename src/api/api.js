@@ -1,32 +1,43 @@
-//appeler les url et les modéliser
 import { get } from "../utils/fetch";
 import { User } from "./models/users";
 import { DailyActivity } from "./models/dailyActivity";
 import { AverageSessions } from "./models/averageSessions";
 import { UserPerformance } from "./models/userPerformance";
+import {
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_MAIN_DATA,
+  USER_PERFORMANCE,
+} from "../data/data.js";
 
-export async function getUserData(userId) {
-  const data = await get(`http://localhost:3000/user/${userId}`);
+export async function getUserData(userId, mockedData) {
+  const data = mockedData
+    ? USER_MAIN_DATA.find((user) => user.id === userId)
+    : await get(`http://localhost:3000/user/${userId}`);
   const model = new User(data);
   return model;
 }
 
-export async function getUserActivity(userId) {
-  const data = await get(`http://localhost:3000/user/${userId}/activity`);
+export async function getUserActivity(userId, mockedData) {
+  const data = mockedData
+    ? USER_ACTIVITY.find((activity) => activity.userId === userId)
+    : await get(`http://localhost:3000/user/${userId}/activity`);
   const model = new DailyActivity(data);
   return model;
 }
 
-export async function getUserAverageSessions(userId) {
-  const data = await get(
-    `http://localhost:3000/user/${userId}/average-sessions`
-  );
+export async function getUserAverageSessions(userId, mockedData) {
+  const data = mockedData
+    ? USER_AVERAGE_SESSIONS.find((session) => session.userId === userId)
+    : await get(`http://localhost:3000/user/${userId}/average-sessions`);
   const model = new AverageSessions(data);
   return model;
 }
 
-export async function getUserPerformance(userId) {
-  const data = await get(`http://localhost:3000/user/${userId}/performance`);
+export async function getUserPerformance(userId, mockedData) {
+  const data = mockedData
+    ? USER_PERFORMANCE.find((perf) => perf.userId === userId)
+    : await get(`http://localhost:3000/user/${userId}/performance`);
   const model = new UserPerformance(data);
   return model;
 }
