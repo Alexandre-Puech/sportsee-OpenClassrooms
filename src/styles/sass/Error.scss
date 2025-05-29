@@ -1,0 +1,21 @@
+@import "variables";
+@import "mixins";
+
+.error404-body {
+  @include flex-center;
+  flex-direction: column;
+  gap: 139px;
+  .error404-icon {
+    color: $primary-color;
+    font-size: rem(288);
+    font-weight: 700;
+    margin: 0;
+  }
+  .error404-message {
+    color: $primary-color;
+    font-size: rem(36);
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+  }
+}

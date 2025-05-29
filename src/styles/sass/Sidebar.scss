@@ -1,32 +1,36 @@
 @import "variables";
 @import "mixins";
 
-@media (min-width: 1024px) and (min-height: 780px) {
-  .sidebar {
-    background-color: black;
+.sidebar {
+  background-color: black;
+  @include flex-center;
+  flex-direction: column;
+  height: 100%;
+  width: 117px;
+  .sidebar-buttons {
     @include flex-center;
     flex-direction: column;
-    height: 100%;
-    width: 117px;
-    .sidebar-buttons {
+    flex: 1;
+    gap: 20px;
+    .sidebar-button {
       @include flex-center;
-      flex-direction: column;
-      flex: 1;
-      gap: 20px;
-      .sidebar-button {
-        @include flex-center;
-        width: 64px;
-        height: 64px;
-        background-color: white;
-      }
+      width: 64px;
+      height: 64px;
+      background-color: white;
     }
-    .copyright {
-      font-size: rem(12);
-      font-weight: 500;
-      color: white;
-      transform: rotate(-90deg);
-      text-wrap: nowrap;
-      margin-bottom: 150px;
-    }
+  }
+  .copyright {
+    font-size: rem(12);
+    font-weight: 500;
+    color: white;
+    transform: rotate(-90deg);
+    text-wrap: nowrap;
+    margin-bottom: 150px;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 780px) and (max-width: 1439px) and (max-height: 1023px) {
+  .sidebar {
+    height: 130%;
   }
 }

@@ -1,38 +1,36 @@
 @import "variables";
 @import "mixins";
 
-@media (min-width: 1024px) and (min-height: 780px) {
-  .header {
+.header {
+  @include flex-center;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 91px;
+  gap: 149px;
+  .header-logo {
     @include flex-center;
     flex-direction: row;
-    background-color: black;
-    color: white;
-    width: 100vw;
-    height: 91px;
-    gap: 149px;
-    .header-logo {
-      @include flex-center;
-      flex-direction: row;
-      gap: 10px;
-      margin: 19px 0px 12px 28px;
-      .logo-image {
-        width: 57px;
-        height: 57px;
-        background-color: $primary-color;
-        border-radius: 50px;
-      }
+    gap: 10px;
+    margin: 19px 0px 12px 28px;
+    .logo-image {
+      width: 57px;
+      height: 57px;
+      background-color: $primary-color;
+      border-radius: 50px;
     }
-    nav {
-      @include flex-space;
-      flex-direction: row;
-      margin: 36px 91px 31px 0px;
-      width: 100%;
-      a {
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-        font-size: rem(24);
-      }
+  }
+  nav {
+    @include flex-space;
+    flex-direction: row;
+    margin: 36px 91px 31px 0px;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: rem(24);
     }
   }
 }

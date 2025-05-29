@@ -1,11 +1,9 @@
 @import "variables";
 @import "mixins";
 
-@media (min-width: 1024px) and (min-height: 780px) {
-  body {
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-    height: 100vh;
-    width: 100vw;
-  }
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100vw;
 }

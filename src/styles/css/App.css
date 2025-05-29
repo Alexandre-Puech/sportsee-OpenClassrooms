@@ -1,23 +1,32 @@
-@media (min-width: 1024px) and (min-height: 780px) {
-  .appLayout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  .appLayout .layout-body {
-    display: flex;
-    height: 100vh;
-  }
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.appLayout .layout-body {
+  display: flex;
+  height: 100vh;
+}
+.appLayout .content {
+  display: flex;
+  flex-direction: column;
+  margin: 68px 90px 86px 107px;
+  width: 100%;
+  gap: 77px;
+}
+.appLayout .content-body {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 1024px) and (min-height: 780px) and (max-width: 1439px) and (max-height: 1023px) {
   .appLayout .content {
-    display: flex;
-    flex-direction: column;
-    margin: 68px 90px 86px 107px;
-    width: 100%;
-    gap: 77px;
+    margin: 35px 35px 43px 40px;
   }
   .appLayout .content-body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
+    align-items: center;
   }
 }
 

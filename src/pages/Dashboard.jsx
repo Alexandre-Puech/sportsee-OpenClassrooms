@@ -7,25 +7,27 @@ import AverageSessions from "../components/AverageSessions";
 import PerformanceRadar from "../components/PerformanceRadar";
 import ScoreRadial from "../components/ScoreRadial";
 import DataCards from "../components/DataCards";
-// import { useParams } from "react-router-dom"; // Uncomment when integrating with the real app
-
-//const { USER_ID } = useParams(); //switch from a basic const to useParams hook when integrating to the real app
-const USER_ID = 18; // Mocked user ID for testing
-const MOCKED_DATA = false; // Set to true to use mocked data
+import { useParams, useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const USER_ID = Number(id);
+  const MOCKED_DATA = false; // Set to true to use mocked data
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchUser() {
       const userData = await getUserData(USER_ID, MOCKED_DATA);
-      setUser(userData);
+      if (!userData) {
+        navigate("/error");
+      } else {
+        setLoading(false);
+      }
     }
     fetchUser();
-  }, []);
-  if (!user) {
-    return <div>Loading...</div>;
-  }
-  return (
+  }, [USER_ID, MOCKED_DATA, navigate]);
+
+  return !loading ? (
     <>
       <Title
         userId={USER_ID}
@@ -42,7 +44,7 @@ function Dashboard() {
         <DataCards userId={USER_ID} mockedData={MOCKED_DATA} />
       </div>
     </>
-  );
+  ) : null;
 }
 
 export default Dashboard;

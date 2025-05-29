@@ -5,6 +5,6 @@ export async function get(url) {
     return json.data;
   } catch (error) {
     console.error(`Fetch Error: ${error}`);
-    alert("ERROR WHILE FETCHING DATA");
+    return null;
   }
 }

@@ -17,4 +17,11 @@
   background-color: rgba(253, 81, 129, 0.06);
 }
 
+@media (min-width: 1024px) and (min-height: 780px) and (max-width: 1439px) and (max-height: 1023px) {
+  .cards-container {
+    flex-direction: row;
+    margin: 0;
+  }
+}
+
 /*# sourceMappingURL=Datacards.css.map */
